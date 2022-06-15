@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+{% load static i18n %}
+{% get_current_language as LANGUAGE_CODE %}
+{% get_current_language_bidi as LANGUAGE_BIDI %}
+<html lang="{{ LANGUAGE_CODE }}" {% if LANGUAGE_BIDI %}dir="rtl" {% endif %}>
+<head>
+  {% include "inc/huge_comment.html" %}
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>{% block title %}{% endblock %}</title>
+  <link rel="icon" href="{% static 'img/favicon.png' %}">
+  <link rel="stylesheet" href="{% static 'css/style.css' %}"/>
+</head>
+<body>
+<div class="wrap">
+  {% include 'inc/header.html' %}
+  <main class="main">
+    {% block content %}{% endblock %}
+  </main>
+  {% include 'inc/footer.html' %}
+</div>
+<script src="{% static 'js/script.js' %}"></script>
+</body>
+</html>
